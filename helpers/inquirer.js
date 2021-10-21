@@ -2,6 +2,7 @@
 const inquirer = require("inquirer");
 const colors = require("colors");
 
+//? opciones del menu
 const questions = [{
     type: 'list',
     name: 'opcion',
@@ -9,35 +10,36 @@ const questions = [{
     choices: [
         {
             value: '1',
-            name: '1. Crear tarea'
+            name: `${'1.'.green} Crear tarea`
         },
         {
             value: '2',
-            name: '2. istar tareas'
+            name: `${'2.'.green} Listar tareas`
         },
         {
             value: '3',
-            name: '3. Listar tareas completadas'
+            name: `${'3.'.green} Listar tareas completadas`
         },
         {
             value: '4',
-            name: '4. Listar tereas pendientes'
+            name: `${'4.'.green} Listar tereas pendientes`
         },
         {
             value: '5',
-            name: '5. Completar terea(s)'
+            name: `${'5.'.green} Completar terea(s)`
         },
         {
             value: '6',
-            name: '6. Borrar tareas'
+            name: `${'6.'.green} Borrar tareas`
         },
         {
             value: '0',
-            name: '7. salir'
+            name: `${'7.'.green} salir`
         },
 ]
 }];
 
+//? Menu
 const inquirerMenu = async ()=>{
     console.clear();
 
@@ -50,6 +52,7 @@ const inquirerMenu = async ()=>{
     return opcion;
 };
 
+//? presionar enter para continuar
 const pausa = async ()=>{
     const question = [{
         type: 'input',
@@ -61,6 +64,7 @@ const pausa = async ()=>{
     await inquirer.prompt(question);
 };
 
+//? lee una entrada por teclado
 const leerInput = async (message)=>{
     const question = {
         type: 'input',

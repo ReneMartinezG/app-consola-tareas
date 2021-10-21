@@ -1,6 +1,7 @@
 /*jshint esversion: 8 */
 const { v4: uuidv4 } = require('uuid');
 
+//? esqueleto de la tarea
 class Tarea {
     
     // id = "";
