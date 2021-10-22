@@ -8,7 +8,7 @@ class Tareas {
     //_listado = {};
 
     //? lista de tareas
-    //?llena el _istado = {} con la info del data.json
+    //?llena el _listado = {} con la info del data.json
     get listadoArr(){
         //! el formato seria
         //*       {
@@ -28,6 +28,13 @@ class Tareas {
         
     constructor(){
         this._listado = {};
+    }
+
+    //? borra la tarea
+    borrarTarea(id = ""){
+        if(this._listado[id]){
+            delete this._listado[id];
+        }
     }
 
     //? lista todas las tareas
@@ -101,6 +108,25 @@ class Tareas {
            
             
         });
+    }
+
+    //?cambia las tareas en (tareas.completadoEn) a null o completada
+    toggleCompletadas(ids = []){
+        ids.forEach( (id)=>{
+            const tarea = this._listado[id];
+            if(!tarea.completadoEn){
+                tarea.completadoEn = new Date().toISOString();
+            }
+        });
+
+        this.listadoArr.forEach( (tarea)=>{
+            if(!ids.includes(tarea.id)){
+                const tareas = this._listado[tarea.id];
+                tareas.completadoEn = null;
+
+            }
+        });
+
     }
 
 
